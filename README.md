@@ -1,2 +1,2 @@
-# Currency-Converter-VueJS
+# Currency-Converter-vueJS
 A simple currency converter app 
