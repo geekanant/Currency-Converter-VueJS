@@ -38,7 +38,7 @@ new Vue({
                 return;
             }
 
-            axios.get('https://free.currencyconverterapi.com/api/v6/currencies')
+            axios.get('https://free.currconv.com/api/v7/currencies?apiKey=9d716bac2798da3e8911')
             .then(response=>{
                 this.currencies=response.data.results;
                 localStorage.setItem('currencies',JSON.stringify(response.data.results))
@@ -49,10 +49,11 @@ new Vue({
 
             const key = `${this.from}_${this.to}`;
             this.loading=true;
-            axios.get(`https://free.currencyconverterapi.com/api/v6/convert?q=${key}`)
+            axios.get(`https://free.currconv.com/api/v7/convert?q=${key}&compact=ultra&apiKey=9d716bac2798da3e8911`)
             .then((response)=>{
                 this.loading = false;
-                this.result = response.data.results[key].val
+	console.log(response.data);
+                this.result = response.data[key];
             })
         }
     },
